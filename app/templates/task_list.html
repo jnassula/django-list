@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title mt-4">Task List</h1>
+    <table class="table is-bordered is-striped is-hoverable">
+        <tr class="has-background-info-dark">
+            <th>Title</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr> 
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.title }}</td>
+                <td>{{ task.description }}</td>
+                <td>{{ task.date }}</td>
+                <td>{{ task.get_status_display }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    <a href="{% url 'register_task' %}" class="button is-info is-light mt-4">Back</a>
+
+{% endblock content %}
